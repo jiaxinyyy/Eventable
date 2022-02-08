@@ -10,12 +10,14 @@ export default class Create extends Component {
     this.onChangePersonName = this.onChangePersonName.bind(this);
     this.onChangePersonPosition = this.onChangePersonPosition.bind(this);
     this.onChangePersonLevel = this.onChangePersonLevel.bind(this);
+    this.onChangePersonAge = this.onChangePersonAge.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
  
     this.state = {
       person_name: "",
       person_position: "",
       person_level: "",
+      person_age: null,
     };
   }
  
@@ -37,6 +39,12 @@ export default class Create extends Component {
       person_level: e.target.value,
     });
   }
+
+  onChangePersonAge(e){
+    this.setState({
+      person_age: e.target.value,
+    });
+  }
  
 // This function will handle the submission.
   onSubmit(e) {
@@ -47,6 +55,7 @@ export default class Create extends Component {
       person_name: this.state.person_name,
       person_position: this.state.person_position,
       person_level: this.state.person_level,
+      person_age: this.state.person_age,
     };
  
     axios
@@ -58,6 +67,7 @@ export default class Create extends Component {
       person_name: "",
       person_position: "",
       person_level: "",
+      person_age: "",
     });
   }
  
@@ -83,6 +93,15 @@ export default class Create extends Component {
               className="form-control"
               value={this.state.person_position}
               onChange={this.onChangePersonPosition}
+            />
+          </div>
+          <div className="form-group">
+            <label>Person's age: </label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.person_age}
+              onChange={this.onChangePersonAge}
             />
           </div>
           <div className="form-group">

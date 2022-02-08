@@ -8,6 +8,7 @@ const Record = (props) => (
     <td>{props.record.person_name}</td>
     <td>{props.record.person_position}</td>
     <td>{props.record.person_level}</td>
+    <td>{props.record.person_age}</td>
     <td>
       <Link to={"/edit/" + props.record._id}>Edit</Link> |
       <a
@@ -77,6 +78,7 @@ export default class RecordList extends Component {
               <th>Name</th>
               <th>Position</th>
               <th>Level</th>
+              <th>age</th>
               <th>Action</th>
             </tr>
           </thead>

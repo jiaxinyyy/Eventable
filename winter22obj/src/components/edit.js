@@ -11,12 +11,14 @@ class Edit extends Component {
     this.onChangePersonName = this.onChangePersonName.bind(this);
     this.onChangePersonPosition = this.onChangePersonPosition.bind(this);
     this.onChangePersonLevel = this.onChangePersonLevel.bind(this);
+    this.onChangePersonAge = this.onChangePersonAge.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
  
     this.state = {
       person_name: "",
       person_position: "",
       person_level: "",
+      person_age: "",
       records: [],
     };
   }
@@ -29,6 +31,7 @@ class Edit extends Component {
           person_name: response.data.person_name,
           person_position: response.data.person_position,
           person_level: response.data.person_level,
+          person_age: response.data.person_age,
         });
       })
       .catch(function (error) {
@@ -54,6 +57,12 @@ class Edit extends Component {
       person_level: e.target.value,
     });
   }
+
+  onChangePersonAge(e) {
+    this.setState({
+      person_age: e.target.value,
+    });
+  }
  
   // This function will handle the submission.
   onSubmit(e) {
@@ -62,6 +71,7 @@ class Edit extends Component {
       person_name: this.state.person_name,
       person_position: this.state.person_position,
       person_level: this.state.person_level,
+      person_age: this.state.person_age,
     };
     console.log(newEditedperson);
  
@@ -98,6 +108,15 @@ class Edit extends Component {
               className="form-control"
               value={this.state.person_position}
               onChange={this.onChangePersonPosition}
+            />
+          </div>
+          <div className="form-group">
+            <label>Age: </label>
+            <input
+              type="text"
+              className="form-control"
+              value={this.state.person_age}
+              onChange={this.onChangePersonAge}
             />
           </div>
           <div className="form-group">
